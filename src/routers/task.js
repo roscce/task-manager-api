@@ -40,6 +40,7 @@ router.get('/tasks', auth, async (req, res) => {
                 sort
             }
         }).execPopulate();
+        
         res.send(req.user.tasks);
     } catch (error) {
         res.status(500).send();
@@ -83,7 +84,6 @@ router.patch('/tasks/:id', auth, async (req, res) => {
 
         res.send(task);
     } catch (error) {
-        console.log(error)
         res.status(400).send(error);
     }
 });
